@@ -1,0 +1,27 @@
+{% load static %}
+
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>To Do List - Вход</title>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Poppins:ital,wght@0,400;0,600;1,300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/users.css' %}">
+        <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    </head>
+    <body>
+        <div class="authorization-window">
+            <h1 class="authorization-title">Вход</h1>
+            <form method="POST">
+                <input type="text" placeholder="e-mail" class="authorization-email-form"><br>
+                <input type="text" placeholder="пароль" class="authorization-password-form"><br>
+                <button class="authorization-button" type="submit">войти</button>
+            </form>
+            <a class="registration" href="{% url 'user:registration' %}">Нет аккаунта?</a>
+            <a class="recovery" href="{% url 'user:recovery' %}">Забыли пароль?</a>
+        </div>
+    </body>
+</html>
