@@ -1,0 +1,359 @@
+/* base
+   ========================================================================== */
+
+.title-link {
+    text-decoration: none;
+    font-family: Inter;
+    font-size: 96px;
+    color: #4C99B2;
+}
+
+input::placeholder {
+    color: #9E9292;
+    font-size: 22px;
+    font-style: Italic;
+
+    text-align: center;
+}
+
+input:focus {
+  border-color: #D98326;
+}
+
+
+/* index
+   ========================================================================== */
+
+.start-window {
+    width: 808px;
+    height: 527px;
+
+    margin: 70px auto;
+
+    position: relative;
+
+    background-image: url(../img/users/bg-rectangle-without-lines.png);
+    background-size: 100%;
+}
+
+.index-title {
+    margin: 0;
+    font-family: Inter;
+    font-size: 96px;
+    color: #4C99B2;
+
+    position: absolute;
+    left: 152px;
+    top: 165px;
+}
+
+.quote-block {
+    position: absolute;
+    left: 130px;
+    bottom: 95px;
+}
+
+.authorization-block {
+    width: 154px;
+    height: 53px;
+
+    background-image: url(../img/users/bg-authorization.png);
+
+    position: absolute;
+    right: 0.8px;
+    top: 95px;
+}
+
+.authorization {
+    text-decoration: none;
+    font-family: Poppins, sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: white;
+
+    position: absolute;
+    right: 41px;
+    top: 10px;
+}
+
+
+/* authorization
+   ========================================================================== */
+
+.authorization-window {
+    width: 808px;
+    height: 527px;
+
+    margin: 70px auto;
+
+    background-image: url(../img/users/bg-rectangle-with-lines.png);
+    background-size: 100%;
+
+    position: relative;
+}
+
+.registration {
+    margin: 0;
+    font-family: Poppins;
+    font-size: 15px;
+    color: #D98326;
+
+    position: absolute;
+    right: 360px;
+    bottom: 85px;
+}
+
+.recovery {
+    margin: 0;
+    font-family: Poppins;
+    font-size: 15px;
+    color: #D98326;
+
+    position: absolute;
+    right: 353px;
+    bottom: 60px;
+}
+
+.authorization-title {
+    margin: 0;
+    font-family: Inter;
+    font-size: 96px;
+    color: #4C99B2;
+
+    position: absolute;
+    left: 282px;
+    top: 102px;
+}
+
+.authorization-button {
+    width: 154px;
+    height: 36px;
+
+    background-image: url(../img/users/bg-authorization-button.png);
+    border: 0;
+    outline: 0;
+
+    position: absolute;
+    right: 328px;
+    bottom: 130px;
+
+    margin: 0;
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    color: white;
+}
+
+.authorization-email-form {
+    width: 272px;
+    height: 38px;
+
+    color: #D98326;
+
+    position: absolute;
+    right: 267px;
+    bottom: 245px;
+
+    outline-color: #D98326;
+    border: none;
+
+    margin: 0;
+    font-family: Poppins, Bold, sans-serif;
+    font-weight: 200;
+    font-size: 18px;
+    color: #9E9292;
+
+    text-align: center;
+}
+
+.authorization-password-form {
+    width: 272px;
+    height: 38px;
+
+    outline-color: #D98326;
+    border: none;
+
+    position: absolute;
+    right: 267px;
+    bottom: 190px;
+
+    margin: 0;
+    font-family: Poppins, Bold, sans-serif;
+    font-weight: 200;
+    font-size: 18px;
+    color: #9E9292;
+
+    text-align: center;
+}
+
+
+/* recovery
+   ========================================================================== */
+
+.recovery-window {
+    width: 808px;
+    height: 527px;
+
+    margin: 70px auto;
+
+    background-image: url(../img/users/bg-rectangle-with-lines.png);
+    background-size: 100%;
+    position: relative;
+}
+
+.recovery-title {
+    margin: 0;
+    font-family: Poppins, sans-serif;
+    font-size: 15px;
+    font-weight: 200;
+    color: black;
+
+    position: absolute;
+    right: 140px;
+    top: 285px;
+
+    transform: rotate(-90deg);
+}
+
+.recovery-sign {
+    position: absolute;
+    right: 320px;
+    top: 110px;
+}
+
+.recovery-button {
+    width: 154px;
+    height: 36px;
+
+    background-image: url(../img/users/bg-recovery-button.png);
+    border: 0;
+    outline: 0;
+
+    position: absolute;
+    right: 328px;
+    bottom: 110px;
+
+    margin: 0;
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    color: white;
+}
+
+.email-form {
+    width: 272px;
+    height: 38px;
+
+    color: #D98326;
+
+    position: absolute;
+    right: 267px;
+    bottom: 180px;
+
+    outline-color: #D98326;
+    border: none;
+
+    margin: 0;
+    font-family: Poppins, Bold, sans-serif;
+    font-weight: 200;
+    font-size: 18px;
+    color: #9E9292;
+
+    text-align: center;
+}
+
+
+/* registration
+   ========================================================================== */
+
+.registration-window {
+    width: 808px;
+    height: 527px;
+
+    margin: 70px auto;
+
+    background-image: url(../img/users/bg-rectangle-with-lines.png);
+    background-size: 100%;
+    position: relative;
+}
+
+.registration-title {
+    margin: 0;
+    font-family: Poppins, sans-serif;
+    font-size: 15px;
+    font-weight: 200;
+    color: black;
+
+    position: absolute;
+    right: 135px;
+    top: 280px;
+
+    transform: rotate(-90deg);
+}
+
+.registration-sign {
+    position: absolute;
+    right: 325px;
+    top: 110px;
+}
+
+.registration-button {
+    width: 154px;
+    height: 36px;
+
+    background-image: url(../img/users/bg-registration-button.png);
+    border: 0;
+    outline: 0;
+
+    position: absolute;
+    right: 328px;
+    bottom: 105px;
+
+    margin: 0;
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    color: white;
+}
+
+.registration-email-form {
+    width: 272px;
+    height: 38px;
+
+    color: #D98326;
+
+    position: absolute;
+    right: 267px;
+    bottom: 225px;
+
+    outline-color: #D98326;
+    border: none;
+
+    margin: 0;
+    font-family: Poppins, Bold, sans-serif;
+    font-weight: 200;
+    font-size: 18px;
+    color: #9E9292;
+
+    text-align: center;
+}
+
+.registration-password-form {
+    width: 272px;
+    height: 38px;
+
+    outline-color: #D98326;
+    border: none;
+
+    position: absolute;
+    right: 267px;
+    bottom: 170px;
+
+    margin: 0;
+    font-family: Poppins, Bold, sans-serif;
+    font-weight: 200;
+    font-size: 18px;
+    color: #9E9292;
+
+    text-align: center;
+}
