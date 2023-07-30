@@ -1,12 +1,5 @@
-/* base
+/* general
    ========================================================================== */
-
-.title-link {
-    text-decoration: none;
-    font-family: Inter;
-    font-size: 96px;
-    color: #4C99B2;
-}
 
 input::placeholder {
     color: #9E9292;
@@ -20,21 +13,58 @@ input:focus {
   border-color: #D98326;
 }
 
+button {
+    width: 154px;
+    height: 36px;
 
-/* index
-   ========================================================================== */
+    background-color: #4C99B2;
+    border: 1px solid #FFFFFF;
+    border-radius: 10px;
 
-.start-window {
+    cursor: pointer;
+}
+
+.bg-window {
     width: 808px;
     height: 527px;
 
+    background-color: #F1ECE6;
+    border: 1px solid #000000;
+    border-radius: 50px;
+
     margin: 70px auto;
-
     position: relative;
-
-    background-image: url(../img/users/bg-rectangle-without-lines.png);
-    background-size: 100%;
 }
+
+.left-bg-line {
+    width: 400px;
+
+    border: 0.1px solid #1E1E1E;
+    opacity: 0.5;
+
+    top: 260px;
+    left: 400px;
+    position: absolute;
+
+    transform: rotate(-90deg);
+}
+
+.right-bg-line {
+    width: 400px;
+
+    border: 0.1px solid #1E1E1E;
+    opacity: 0.5;
+
+    top: 260px;
+
+    position: absolute;
+
+    transform: rotate(-90deg);
+}
+
+
+/* index
+   ========================================================================== */
 
 .index-title {
     margin: 0;
@@ -47,52 +77,48 @@ input:focus {
     top: 165px;
 }
 
+.index-title-link {
+    text-decoration: none;
+    font-family: Inter;
+    font-size: 96px;
+    color: #4C99B2;
+}
+
 .quote-block {
     position: absolute;
     left: 130px;
     bottom: 95px;
 }
 
-.authorization-block {
-    width: 154px;
-    height: 53px;
+.bg-to-authorization {
+    width: 140px;
+    height: 45px;
 
-    background-image: url(../img/users/bg-authorization.png);
+    background-color: #4C99B2;
+    border-radius: 20px 0 0 20px;
 
     position: absolute;
-    right: 0.8px;
-    top: 95px;
+    left: 667.5px;
+    top: 100px;
 }
 
-.authorization {
+.to-authorization {
     text-decoration: none;
     font-family: Poppins, sans-serif;
-    font-size: 28px;
     font-weight: 600;
+    font-size: 24px;
     color: white;
 
     position: absolute;
-    right: 41px;
-    top: 10px;
+    left: 45px;
+    top: 8px;
 }
 
 
 /* authorization
    ========================================================================== */
 
-.authorization-window {
-    width: 808px;
-    height: 527px;
-
-    margin: 70px auto;
-
-    background-image: url(../img/users/bg-rectangle-with-lines.png);
-    background-size: 100%;
-
-    position: relative;
-}
-
-.registration {
+.to-registration {
     margin: 0;
     font-family: Poppins;
     font-size: 15px;
@@ -103,7 +129,7 @@ input:focus {
     bottom: 85px;
 }
 
-.recovery {
+.to-recovery {
     margin: 0;
     font-family: Poppins;
     font-size: 15px;
@@ -126,25 +152,17 @@ input:focus {
 }
 
 .authorization-button {
-    width: 154px;
-    height: 36px;
-
-    background-image: url(../img/users/bg-authorization-button.png);
-    border: 0;
-    outline: 0;
-
-    position: absolute;
-    right: 328px;
-    bottom: 130px;
-
-    margin: 0;
     font-family: Poppins, sans-serif;
     font-weight: 600;
     font-size: 24px;
     color: white;
+
+    position: absolute;
+    right: 328px;
+    bottom: 130px;
 }
 
-.authorization-email-form {
+.authorization-email-field {
     width: 272px;
     height: 38px;
 
@@ -166,7 +184,7 @@ input:focus {
     text-align: center;
 }
 
-.authorization-password-form {
+.authorization-password-field {
     width: 272px;
     height: 38px;
 
@@ -190,17 +208,6 @@ input:focus {
 /* recovery
    ========================================================================== */
 
-.recovery-window {
-    width: 808px;
-    height: 527px;
-
-    margin: 70px auto;
-
-    background-image: url(../img/users/bg-rectangle-with-lines.png);
-    background-size: 100%;
-    position: relative;
-}
-
 .recovery-title {
     margin: 0;
     font-family: Poppins, sans-serif;
@@ -222,25 +229,17 @@ input:focus {
 }
 
 .recovery-button {
-    width: 154px;
-    height: 36px;
-
-    background-image: url(../img/users/bg-recovery-button.png);
-    border: 0;
-    outline: 0;
-
-    position: absolute;
-    right: 328px;
-    bottom: 110px;
-
-    margin: 0;
     font-family: Poppins, sans-serif;
     font-weight: 600;
     font-size: 24px;
     color: white;
+
+    position: absolute;
+    right: 328px;
+    bottom: 110px;
 }
 
-.email-form {
+.recovery-email-field {
     width: 272px;
     height: 38px;
 
@@ -266,17 +265,6 @@ input:focus {
 /* registration
    ========================================================================== */
 
-.registration-window {
-    width: 808px;
-    height: 527px;
-
-    margin: 70px auto;
-
-    background-image: url(../img/users/bg-rectangle-with-lines.png);
-    background-size: 100%;
-    position: relative;
-}
-
 .registration-title {
     margin: 0;
     font-family: Poppins, sans-serif;
@@ -294,29 +282,21 @@ input:focus {
 .registration-sign {
     position: absolute;
     right: 325px;
-    top: 110px;
+    top: 80px;
 }
 
 .registration-button {
-    width: 154px;
-    height: 36px;
-
-    background-image: url(../img/users/bg-registration-button.png);
-    border: 0;
-    outline: 0;
-
-    position: absolute;
-    right: 328px;
-    bottom: 105px;
-
-    margin: 0;
     font-family: Poppins, sans-serif;
     font-weight: 600;
     font-size: 24px;
     color: white;
+
+    position: absolute;
+    right: 328px;
+    bottom: 70px;
 }
 
-.registration-email-form {
+.registration-email-field {
     width: 272px;
     height: 38px;
 
@@ -324,7 +304,7 @@ input:focus {
 
     position: absolute;
     right: 267px;
-    bottom: 225px;
+    bottom: 250px;
 
     outline-color: #D98326;
     border: none;
@@ -338,7 +318,7 @@ input:focus {
     text-align: center;
 }
 
-.registration-password-form {
+.registration-password-set-field {
     width: 272px;
     height: 38px;
 
@@ -347,7 +327,7 @@ input:focus {
 
     position: absolute;
     right: 267px;
-    bottom: 170px;
+    bottom: 190px;
 
     margin: 0;
     font-family: Poppins, Bold, sans-serif;
@@ -356,4 +336,124 @@ input:focus {
     color: #9E9292;
 
     text-align: center;
+}
+
+.registration-password-confirm-field {
+    width: 272px;
+    height: 38px;
+
+    outline-color: #D98326;
+    border: none;
+
+    position: absolute;
+    right: 267px;
+    bottom: 130px;
+
+    margin: 0;
+    font-family: Poppins, Bold, sans-serif;
+    font-weight: 200;
+    font-size: 18px;
+    color: #9E9292;
+
+    text-align: center;
+}
+
+.password-set-title {
+    width: 272px;
+    height: 38px;
+
+    outline-color: #D98326;
+    border: none;
+
+    position: absolute;
+    right: 360px;
+    bottom: 207px;
+
+    margin: 0;
+    font-family: Poppins, Italic, sans-serif;
+    font-weight: 200;
+    font-size: 12px;
+    color: #765858;
+
+    text-align: center;
+}
+
+.password-confirm-title {
+    width: 272px;
+    height: 38px;
+
+    outline-color: #D98326;
+    border: none;
+
+    position: absolute;
+    right: 347px;
+    bottom: 147px;
+
+    margin: 0;
+    font-family: Poppins, Italic, sans-serif;
+    font-weight: 200;
+    font-size: 12px;
+    color: #765858;
+
+    text-align: center;
+}
+
+
+/* notification
+   ========================================================================== */
+
+.notification-popup {
+    width: 810px;
+    height: 529px;
+
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 50px;
+
+    left: 322px;
+    top: 70px;
+
+    position: fixed;
+}
+
+.notification-popup-close-area {
+    width: 810px;
+    height: 529px;
+
+    background: rgba(0, 0, 0, 0);
+    border-radius: 50px;
+
+    position: fixed;
+    z-index: -1;
+}
+
+.notification-popup-body {
+    max-width: 430px;
+    min-height: 100px;
+
+    margin: 120px auto;
+
+    background-color: white;
+    border: 2px solid #4C99B2;
+    border-radius: 25px;
+
+    padding: 0 30px;
+}
+
+.notification-popup-content {
+    margin: 50px 20px;
+}
+
+.notification-popup-body-title {
+    font-family: Poppins, sans-serif;
+    font-size: 15px;
+    font-weight: 200;
+    color: black;
+}
+
+.notification-popup-body-text {
+    margin: 0;
+    font-family: Poppins, sans-serif;
+    font-size: 15px;
+    font-weight: 200;
+    color: black;
 }

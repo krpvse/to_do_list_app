@@ -1,26 +1,38 @@
+{% extends 'users/base.html' %}
 {% load static %}
 
-<!doctype html>
-<html lang="ru">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport"
-              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>To Do List - Регистрация</title>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Poppins:ital,wght@0,400;0,600;1,300&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="{% static 'css/users.css' %}">
-        <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
-    </head>
-    <body>
-        <div class="registration-window">
-            <h1 class="registration-title">Создание нового аккаунта</h1>
-            <img class="registration-sign" src="{% static 'img/users/registration-sign.png' %}" alt="Регистрация" height="140px" width="140px">
-            <form method="POST">
-                <input type="text" placeholder="e-mail" class="registration-email-form"><br>
-                <input type="text" placeholder="пароль" class="registration-password-form"><br>
-                <button class="registration-button" type="submit">создать</button>
-            </form>
+
+{% block title %}
+    <title>To Do List - Регистрация</title>
+{% endblock %}
+
+{% block content %}
+    <hr class="left-bg-line">
+    <h1 class="registration-title">Создание нового аккаунта</h1>
+    <img class="registration-sign" src="{% static 'img/users/registration-sign.png' %}" alt="Регистрация" height="140px" width="140px">
+    <form action="{% url 'users:registration' %}" method="POST">
+        {% csrf_token %}
+        {{ form.username }}
+        <label class="password-set-title">введите</label>
+        {{ form.password1 }}
+        <label class="password-confirm-title">подтвердите</label>
+        {{ form.password2 }}
+        <button class="registration-button" type="submit">создать</button>
+    </form>
+    <hr class="right-bg-line">
+{% endblock %}
+
+{% block notification %}
+    {% if form.errors %}
+        <div class="notification-popup">
+            <a href="{% url 'users:registration' %}" class="notification-popup-close-area"></a>
+            <div class="notification-popup-body">
+                <div class="notification-popup-content">
+                    <a href="" class="notification-popup-close"></a>
+                    <div class="notification-popup-body-title">Ошибка:</div>
+                    <div class="notification-popup-body-text">{{ form.errors }}</div>
+                </div>
+            </div>
         </div>
-    </body>
-</html>
+    {% endif %}
+{% endblock %}
