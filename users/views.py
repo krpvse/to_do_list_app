@@ -18,7 +18,7 @@ def authorization(request):
             user = auth.authenticate(username=username, password=password)
             if user:
                 auth.login(request, user)
-                return HttpResponseRedirect(reverse('index'))
+                return HttpResponseRedirect(reverse('tasks:personal_tasks'))
     else:
         form = UserAuthorizationForm()
     context = {'form': form}

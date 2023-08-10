@@ -7,5 +7,6 @@ from users.views import index
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
-    path('user/', include('users.urls', namespace='users'))
+    path('user/', include('users.urls', namespace='users')),
+    path('tasks/', include('tasks.urls', namespace='tasks')),
 ]

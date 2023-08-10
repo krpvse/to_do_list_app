@@ -1,0 +1,265 @@
+/* general
+   ========================================================================== */
+
+.bg-window {
+    width: 808px;
+    height: 527px;
+
+    background-color: #F1ECE6;
+    border: 1px solid #000000;
+    border-radius: 50px;
+
+    margin: 70px auto;
+    position: relative;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* task-types
+   ========================================================================== */
+
+.task-types {
+    width: 808px;
+    height: 33px;
+
+    background-color: #F3F3F3;
+
+    position: absolute;
+    top: 55px;
+}
+
+.personal-tasks {
+    display: inline-block;
+    width: 404px;
+
+    text-align: center;
+
+    text-decoration: none;
+    font-family: Poppins, Bold, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #323232;
+
+    padding: 4px;
+}
+
+.work-tasks {
+    display: inline-block;
+    width: 404px;
+
+    text-align: center;
+
+    text-decoration: none;
+    font-family: Poppins, Bold, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #323232;
+
+    position: absolute;
+    left: 397px;
+
+    padding: 4px;
+}
+
+.personal-tasks-active {
+    display: inline-block;
+    width: 404px;
+
+    text-align: center;
+
+    text-decoration: none;
+    font-family: Poppins, Bold, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #323232;
+    border-bottom: 3px solid #D98326;
+
+    padding: 4px;
+}
+
+.work-tasks-active {
+    display: inline-block;
+    width: 404px;
+
+    text-align: center;
+
+    text-decoration: none;
+    font-family: Poppins, Bold, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #323232;
+    border-bottom: 3px solid #D98326;
+
+    position: absolute;
+    left: 397px;
+
+    padding: 4px;
+}
+
+
+/* add-task
+   ========================================================================== */
+
+.add-task-field {
+    font-family: Poppins, Regular, sans-serif;
+    color: #323232;
+    font-size: 16px;
+
+    padding: 0 0 0 20px;
+
+    width: 550px;
+    height: 33px;
+
+    background-color: white;
+    border: none;
+    border-radius: 40px;
+
+    position: absolute;
+    left: 120px;
+    top: 115px;
+}
+
+.add-task-button {
+    width: 80px;
+    height: 33px;
+
+    background-color: #4C99B2;
+    border: 0;
+    border-radius: 0 40px 40px 0;
+
+    cursor: pointer;
+
+    font-family: Inter;
+    font-size: 36px;
+    color: #FFFFFF;
+
+    position: absolute;
+    left: 618px;
+    top: 115px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input::placeholder {
+    font-family: Poppins, Regular, sans-serif;
+    color: #9E9292;
+    font-size: 18px;
+}
+
+input:focus {
+    outline: 0;
+    outline-offset: 0;
+}
+
+
+/* tasks-area
+   ========================================================================== */
+
+.tasks {
+    list-style-type: none;
+
+    width: 500px;
+    height: 225px;
+
+    background-color: white;
+    border: 1px solid #4C99B2;
+    border-radius: 40px;
+
+    position: absolute;
+    left: 95px;
+    top: 160px;
+
+    padding: 35px 50px 20px 70px;
+}
+
+.task {
+    width: 500px;
+
+    font-family: Poppins, Regular, sans-serif;
+    color: #000000;
+    font-size: 17px;
+
+    text-indent: -1.4em;
+    margin: 0 0 12px 0;
+}
+
+.is-completed-task-icon {
+    vertical-align: middle;
+}
+
+.task-title {
+    display: inline-block;
+    width: 420px;
+
+    font-family: Poppins, Regular, sans-serif;
+    text-decoration: none;
+    font-size: 17px;
+    color: #000000;
+
+    margin: 0 10px 0 30px;
+}
+
+.delete-task-icon {
+    vertical-align: middle;
+}
+
+.task-underline {
+    margin: 0 10px 0 5px;
+}
+
+.no-tasks {
+    font-family: Poppins, Regular, sans-serif;
+    text-decoration: none;
+    font-size: 25px;
+    color: #000000;
+
+    position: absolute;
+    left: 200px;
+    top: 115px;
+
+    transform: rotate(-30deg);
+}
+
+/* pagination-and-task-clear
+   ========================================================================== */
+
+.pagination {
+    position: absolute;
+    left: 190px;
+    top: 475px;
+}
+
+.page-number {
+    font-family: Poppins, Regular, sans-serif;
+    text-decoration: none;
+    font-size: 14px;
+    color: #000000;
+}
+
+.tasks-clear {
+    position: absolute;
+    left: 480px;
+    top: 475px;
+}
+
+.tasks-clear-content {
+    font-family: Poppins, Regular, sans-serif;
+    text-decoration: none;
+    font-size: 12px;
+    color: #000000;
+}
+
+.tasks-clear-content::before {
+     content: "";
+     background: url("../img/tasks/tasks-clear-icon.png");
+
+     width: 16px;
+     height: 20px;
+     float: left;
+     margin: 0 6px 0 0;
+}
