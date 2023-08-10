@@ -1,0 +1,63 @@
+{% load static %}
+
+<!doctype html>
+
+<html lang="ru">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        {% block title %} {% endblock %}
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Poppins:ital,wght@0,400;0,600;1,300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/tasks.css' %}">
+        <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    </head>
+
+    <body>
+        <div class="bg-window">
+
+        {% block task_types %} {% endblock %}
+
+            {% block form %} {% endblock %}
+
+                <ul class="tasks">
+                    {% if tasks %}
+                        {% for task in tasks %}
+                            <li class="task">
+                                {% if not task.is_completed %}
+                                    <a class="is-completed-task-icon" href="{% url 'tasks:change_task_status' task.id %}">
+                                        <img src="{% static 'img/tasks/uncompleted-task-icon.png' %}" alt="Выполнена">
+                                    </a>
+                                {% else %}
+                                    <a class="is-completed-task-icon" href="{% url 'tasks:change_task_status' task.id %}">
+                                        <img src="{% static 'img/tasks/completed-task-icon.png' %}" alt="Не выполнена">
+                                    </a>
+                                {% endif %}
+                                <a class="task-title" href="">{{ task.title }}</a>
+                                <a class="delete-task-icon" href="{% url 'tasks:delete_task' task.id %}">
+                                    <img src="{% static 'img/tasks/delete-task-icon.png' %}">
+                                </a>
+                                <hr class="task-underline">
+                            </li>
+                        {% endfor %}
+                    {% else %}
+                        <div class="no-tasks">У вас нет задач</div>
+                    {% endif %}
+                </ul>
+
+            {% if tasks.paginator.num_pages > 1 %}
+                {% block paginator %} {% endblock %}
+            {% endif %}
+
+            <div class="tasks-clear">
+                <a class="tasks-clear-content" href="{% url 'tasks:delete_all_tasks' %}">
+                    Очистить все задачи
+                </a>
+            </div>
+
+        </div>
+    </body>
+
+</html>

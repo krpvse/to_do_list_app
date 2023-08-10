@@ -1,0 +1,49 @@
+{% extends 'tasks/base.html' %}
+{% load static %}
+
+
+{% block title %}
+    <title>To Do List – Личные задачи</title>
+{% endblock %}
+
+
+{% block task_types %}
+    <div class="task-types">
+        <a href="{% url 'tasks:personal_tasks' %}" class="personal-tasks-active">Личные</a>
+        <a href="{% url 'tasks:work_tasks' %}" class="work-tasks">Рабочие</a>
+    </div>
+{% endblock %}
+
+
+{% block form %}
+    <form action="{% url 'tasks:personal_tasks' %}" method="POST">
+        {% csrf_token %}
+        {{ form.title }}
+        <button class="add-task-button" type="submit">+</button>
+    </form>
+{% endblock %}
+
+
+{% block paginator %}
+    <div class="pagination">
+        {% if tasks.has_previous %}
+            <a class="page-number" href="{% url 'tasks:personal_tasks_paginator' tasks.previous_page_number %}"><</a>
+        {% else %}
+            <a class="page-number" href=""><</a>
+        {% endif %}
+
+        {% for page_number in tasks.paginator.page_range %}
+            {% if page_number != tasks.paginator.num_pages %}
+                <a class="page-number" href="{% url 'tasks:personal_tasks_paginator' page_number %}">{{ page_number }}</a>,
+            {% else %}
+                <a class="page-number" href="{% url 'tasks:personal_tasks_paginator' page_number %}">{{ page_number }}</a>
+            {% endif %}
+        {% endfor %}
+
+        {% if tasks.has_next %}
+            <a class="page-number" href="{% url 'tasks:personal_tasks_paginator' tasks.next_page_number %}">></a>
+        {% else %}
+            <a class="page-number" href="">></a>
+        {% endif %}
+    </div>
+{% endblock %}
