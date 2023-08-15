@@ -32,13 +32,14 @@
             <a class="page-number" href=""><</a>
         {% endif %}
 
-        {% for page_number in tasks.paginator.page_range %}
-            {% if page_number != tasks.paginator.num_pages %}
-                <a class="page-number" href="{% url 'tasks:personal_tasks_paginator' page_number %}">{{ page_number }}</a>,
-            {% else %}
-                <a class="page-number" href="{% url 'tasks:personal_tasks_paginator' page_number %}">{{ page_number }}</a>
-            {% endif %}
-        {% endfor %}
+            {% for page_number in tasks.paginator.page_range %}
+                {% if page_number == tasks.number %}
+                    <a class="page-number" href="{% url 'tasks:personal_tasks_paginator' page_number %}">{{ page_number }}</a> /
+                {% endif %}
+                {% if page_number == tasks.paginator.num_pages %}
+                    <a class="page-number" href="{% url 'tasks:personal_tasks_paginator' page_number %}">{{ page_number }}</a>
+                {% endif %}
+            {% endfor %}
 
         {% if tasks.has_next %}
             <a class="page-number" href="{% url 'tasks:personal_tasks_paginator' tasks.next_page_number %}">></a>

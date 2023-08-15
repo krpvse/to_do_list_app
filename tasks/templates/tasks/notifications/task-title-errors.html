@@ -1,0 +1,13 @@
+{% load static %}
+
+<div class="notification-popup">
+    <a href="" class="notification-popup-close-area"></a>
+    <div class="notification-popup-body">
+        <div class="notification-popup-content">
+            <a href="" class="notification-popup-close"></a>
+            {% for message in messages %}
+                <div class="notification-popup-body-text">{{ message }}</div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

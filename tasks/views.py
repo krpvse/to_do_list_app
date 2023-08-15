@@ -1,37 +1,44 @@
 from django.shortcuts import render, HttpResponseRedirect
 from django.core.paginator import Paginator
 from django.urls import reverse
+from django.contrib import messages
 
 from tasks.forms import TaskForm
 from tasks.models import Task
 
 
 def tasks(request, page_number=1):
-    if 'personal' in request.path:
-        html_path = 'tasks/personal-tasks.html'
-        task_type = 'Личная'
-    else:
-        html_path = 'tasks/work-tasks.html'
-        task_type = 'Рабочая'
+    if request.user.is_authenticated:
+        if 'personal' in request.path:
+            html_path = 'tasks/personal-tasks.html'
+            task_type = 'Личная'
+        else:
+            html_path = 'tasks/work-tasks.html'
+            task_type = 'Рабочая'
 
-    if request.method == 'POST':
-        form = TaskForm(data=request.POST)
-        if form.is_valid():
-            title = request.POST['title']
-            Task.objects.create(title=title, task_type=task_type, user=request.user)
+        if request.method == 'POST':
+            form = TaskForm(data=request.POST)
+            if form.is_valid():
+                title = request.POST['title']
+                Task.objects.create(title=title, task_type=task_type, user=request.user)
+            else:
+                messages.error(request, 'Пишите задачи кратко. Не более 42 символов')
             return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
-    form = TaskForm()
-    tasks = Task.objects.filter(task_type=task_type, user=request.user)
+        form = TaskForm()
+        tasks = Task.objects.filter(task_type=task_type, user=request.user).order_by('is_completed', '-id')
 
-    per_page = 5
-    paginator = Paginator(tasks, per_page)
-    tasks_paginator = paginator.page(page_number)
+        per_page = 5
+        paginator = Paginator(tasks, per_page)
+        tasks_paginator = paginator.page(page_number)
 
-    context = {'form': form,
-               'tasks': tasks_paginator,
-               }
-    return render(request, html_path, context)
+        context = {'form': form,
+                   'tasks': tasks_paginator,
+                   }
+
+        return render(request, html_path, context)
+    else:
+        return HttpResponseRedirect(reverse('users:authorization'))
 
 
 def change_task_status(request, task_id):

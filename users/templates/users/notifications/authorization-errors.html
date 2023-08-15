@@ -1,0 +1,18 @@
+{% load static %}
+
+<div class="notification-popup">
+    <a href="{% url 'users:authorization' %}" class="notification-popup-close-area"></a>
+    <div class="notification-popup-body">
+        <div class="notification-popup-content">
+            <a href="" class="notification-popup-close"></a>
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="notification-popup-body-text">{{ message|linebreaks }}</div>
+                {% endfor %}
+            {% else %}
+                <div class="notification-popup-body-title">Ошибка:</div>
+                <div class="notification-popup-body-text">{{ form.non_field_errors }}</div>
+            {% endif %}
+        </div>
+    </div>
+</div>
