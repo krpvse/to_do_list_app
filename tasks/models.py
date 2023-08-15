@@ -15,4 +15,4 @@ class Task(models.Model):
         verbose_name_plural = 'Задачи'
 
     def __str__(self):
-        return f'Задача: {self.title} | Тип задачи: {self.task_type}'
+        return f'Задача: {self.title} | Тип задачи: {self.task_type} | Пользователь: {self.user}'

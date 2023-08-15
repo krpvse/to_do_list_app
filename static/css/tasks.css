@@ -7,7 +7,7 @@
 
     background-color: #F1ECE6;
     border: 1px solid #000000;
-    border-radius: 50px;
+    border-radius: 50px 0 50px 50px;
 
     margin: 70px auto;
     position: relative;
@@ -192,12 +192,23 @@ input:focus {
     vertical-align: middle;
 }
 
-.task-title {
+.completed-task-title {
     display: inline-block;
     width: 420px;
 
     font-family: Poppins, Regular, sans-serif;
-    text-decoration: none;
+    text-decoration: line-through;
+    font-size: 17px;
+    color: #C2C2C2;
+
+    margin: 0 10px 0 30px;
+}
+
+.uncompleted-task-title {
+    display: inline-block;
+    width: 420px;
+
+    font-family: Poppins, Regular, sans-serif;
     font-size: 17px;
     color: #000000;
 
@@ -262,4 +273,12 @@ input:focus {
      height: 20px;
      float: left;
      margin: 0 6px 0 0;
+}
+
+/* logout
+   ========================================================================== */
+
+.logout {
+    position: absolute;
+    left: 749px;
 }

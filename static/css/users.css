@@ -34,6 +34,7 @@ button {
 
     margin: 70px auto;
     position: relative;
+
 }
 
 .left-bg-line {
@@ -73,8 +74,8 @@ button {
     color: #4C99B2;
 
     position: absolute;
-    left: 152px;
-    top: 165px;
+    left: 160px;
+    top: 140px;
 }
 
 .index-title-link {
@@ -85,9 +86,54 @@ button {
 }
 
 .quote-block {
+    width: 550px;
+    height: 210px;
+
+    background-color: #FFFFFF;
+    border: 1px solid #D98326;
+
     position: absolute;
-    left: 130px;
-    bottom: 95px;
+    left: 120px;
+    bottom: 50px;
+}
+
+.quote {
+    text-align: justify;
+    max-height: 125px;
+    width: 400px;
+
+    font-family: Poppins, Bold, sans-serif;
+    font-size: 18px;
+
+    padding: 30px;
+
+    position: absolute;
+    left: 45px;
+}
+
+.quote::before {
+    content: "";
+    background: url("../img/users/quote-sign.svg");
+    transform: rotate(180deg);
+
+    width: 25px;
+    height: 25px;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.quote::after {
+    content: "";
+    background: url("../img/users/quote-sign.svg");
+
+    width: 25px;
+    height: 25px;
+
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }
 
 .bg-to-authorization {
@@ -396,64 +442,4 @@ button {
     color: #765858;
 
     text-align: center;
-}
-
-
-/* notification
-   ========================================================================== */
-
-.notification-popup {
-    width: 810px;
-    height: 529px;
-
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 50px;
-
-    left: 322px;
-    top: 70px;
-
-    position: fixed;
-}
-
-.notification-popup-close-area {
-    width: 810px;
-    height: 529px;
-
-    background: rgba(0, 0, 0, 0);
-    border-radius: 50px;
-
-    position: fixed;
-    z-index: -1;
-}
-
-.notification-popup-body {
-    max-width: 430px;
-    min-height: 100px;
-
-    margin: 120px auto;
-
-    background-color: white;
-    border: 2px solid #4C99B2;
-    border-radius: 25px;
-
-    padding: 0 30px;
-}
-
-.notification-popup-content {
-    margin: 50px 20px;
-}
-
-.notification-popup-body-title {
-    font-family: Poppins, sans-serif;
-    font-size: 15px;
-    font-weight: 200;
-    color: black;
-}
-
-.notification-popup-body-text {
-    margin: 0;
-    font-family: Poppins, sans-serif;
-    font-size: 15px;
-    font-weight: 200;
-    color: black;
 }

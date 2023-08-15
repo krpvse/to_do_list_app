@@ -1,0 +1,12 @@
+{% load static %}
+
+<div class="notification-popup">
+    <a href="{% url 'users:registration' %}" class="notification-popup-close-area"></a>
+    <div class="notification-popup-body">
+        <div class="notification-popup-content">
+            <a href="" class="notification-popup-close"></a>
+            <div class="notification-popup-body-title">Ошибка:</div>
+            <div class="notification-popup-body-text">{{ form.errors }}</div>
+        </div>
+    </div>
+</div>
