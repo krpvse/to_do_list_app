@@ -23,13 +23,7 @@
 {% endblock %}
 
 {% block notification %}
-
     {% if form.errors %}
         {% include 'users/notifications/registration-errors.html' %}
     {% endif %}
-
-    {% if user.is_authenticated %}
-        {% include 'users/notifications/is-authorizated-notification.html' %}
-    {% endif %}
-
 {% endblock %}
