@@ -16,19 +16,13 @@
         <button class="authorization-button" type="submit">войти</button>
     </form>
     <a class="to-registration" href="{% url 'users:registration' %}">Нет аккаунта?</a>
-    <a class="to-recovery" href="{% url 'users:recovery' %}">Забыли пароль?</a>
+    <a class="to-recovery" href="{% url 'password_reset' %}">Забыли пароль?</a>
     <hr class="right-bg-line">
 {% endblock %}
 
 
 {% block notification %}
-
     {% if form.non_field_errors or messages %}
         {% include 'users/notifications/authorization-errors.html' %}
     {% endif %}
-
-    {% if user.is_authenticated %}
-        {% include 'users/notifications/is-authorizated-notification.html' %}
-    {% endif %}
-
 {% endblock %}

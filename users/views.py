@@ -48,13 +48,6 @@ def registration(request):
         return HttpResponseRedirect(reverse('tasks:personal'))
 
 
-def recovery(request):
-    if not request.user.is_authenticated:
-        return render(request, 'users/recovery.html')
-    else:
-        return HttpResponseRedirect(reverse('tasks:personal'))
-
-
 def logout(request):
     auth.logout(request)
     return HttpResponseRedirect(reverse('index'))

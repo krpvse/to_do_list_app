@@ -137,8 +137,10 @@ a {
     color: #FFFFFF;
 
     position: absolute;
-    left: 618px;
+    left: 625px;
     top: 115px;
+
+    padding: 0;
 
     display: flex;
     align-items: center;
@@ -226,7 +228,7 @@ input:focus {
 .no-tasks {
     font-family: Poppins, Regular, sans-serif;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 18px;
     color: #000000;
 
     position: absolute;
