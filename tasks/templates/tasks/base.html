@@ -24,11 +24,16 @@
             </a>
 
             {% block task_types %} {% endblock %}
-            {% block form %} {% endblock %}
+
+            <form action="{% url 'tasks:add_task' %}" method="POST">
+                {% csrf_token %}
+                {{ form.title }}
+                <button class="add-task-button" type="submit">+</button>
+            </form>
 
             <ul class="tasks">
-                {% if tasks %}
-                    {% for task in tasks %}
+                {% if page_obj %}
+                    {% for task in page_obj %}
                         <li class="task">
                             {% if not task.is_completed %}
                                 <a class="is-completed-task-icon" href="{% url 'tasks:change_task_status' task.id %}">
@@ -52,8 +57,8 @@
                 {% endif %}
             </ul>
 
-            {% if tasks.paginator.num_pages > 1 %}
-                {% block paginator %} {% endblock %}
+            {% if is_paginated %}
+                {% block pagination %} {% endblock %}
             {% endif %}
 
             <div class="tasks-clear">

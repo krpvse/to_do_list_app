@@ -121,9 +121,17 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #Users
 
-LOGIN_URL = 'user/authorization/'
+LOGIN_URL = '/user/authorization/'
+LOGOUT_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/tasks/personal/'
 
 
 #Sending emails
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+#Tasks
+
+PERSONAL_TASKS_ROUTE = 'personal/'
+WORK_TASKS_ROUTE = 'work/'
