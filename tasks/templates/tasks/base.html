@@ -1,9 +1,7 @@
 {% load static %}
 
 <!doctype html>
-
 <html lang="ru">
-
     <head>
         <meta charset="UTF-8">
         <meta name="viewport"
@@ -15,22 +13,17 @@
         <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
         <link rel="stylesheet" href="{% static 'css/notifications.css' %}">
     </head>
-
     <body>
         <div class="bg-window">
-
             <a class="logout" href="{% url 'users:logout' %}">
                 <img src="{% static 'img/users/logout.png' %}" alt="Выйти из аккаунта">
             </a>
-
             {% block task_types %} {% endblock %}
-
             <form action="{% url 'tasks:add_task' %}" method="POST">
                 {% csrf_token %}
                 {{ form.title }}
                 <button class="add-task-button" type="submit">+</button>
             </form>
-
             <ul class="tasks">
                 {% if page_obj %}
                     {% for task in page_obj %}
@@ -56,23 +49,17 @@
                     <div class="no-tasks">У вас ещё нет задач</div>
                 {% endif %}
             </ul>
-
             {% if is_paginated %}
                 {% block pagination %} {% endblock %}
             {% endif %}
-
             <div class="tasks-clear">
                 <a class="tasks-clear-content" href="{% url 'tasks:delete_all_tasks' %}">
                     Очистить все задачи
                 </a>
             </div>
-
         </div>
-
         {% if messages %}
             {% include 'tasks/notifications/task-title-errors.html' %}
         {% endif %}
-
     </body>
-
 </html>
