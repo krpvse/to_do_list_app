@@ -319,12 +319,18 @@ button {
     color: black;
 
     position: absolute;
-    right: 135px;
-    top: 280px;
+    right: 160px;
+    top: 285px;
 
     transform: rotate(-90deg);
 }
 
+
+.password-reset-confirm-sign {
+    position: absolute;
+    right: 320px;
+    top: 97px;
+}
 
 .password-reset-confirm-button {
     font-family: Poppins, sans-serif;
