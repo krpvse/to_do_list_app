@@ -52,11 +52,13 @@
             {% if is_paginated %}
                 {% block pagination %} {% endblock %}
             {% endif %}
-            <div class="tasks-clear">
-                <a class="tasks-clear-content" href="{% url 'tasks:delete_all_tasks' %}">
-                    Очистить все задачи
-                </a>
-            </div>
+            {% if page_obj %}
+                <div class="tasks-clear">
+                    <a class="tasks-clear-content" href="{% url 'tasks:delete_all_tasks' %}">
+                        Очистить все задачи
+                    </a>
+                </div>
+            {% endif %}
         </div>
         {% if messages %}
             {% include 'tasks/notifications/task-title-errors.html' %}
