@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 
-from users.views import IndexView, UserPasswordResetView, UserPasswordResetDoneView, UserPasswordResetConfirmView
+from users.views import IndexView, UserPasswordResetView, UserPasswordResetConfirmView
 
 
 urlpatterns = [
@@ -12,6 +12,5 @@ urlpatterns = [
     path('tasks/', include('tasks.urls', namespace='tasks')),
 
     path('user/password-reset/', UserPasswordResetView.as_view(), name='password_reset'),
-    path('user/password-reset-done/', UserPasswordResetDoneView.as_view(), name='password_reset_done'),
     path('user/password-reset-confirm/<uidb64>/<token>/', UserPasswordResetConfirmView.as_view(), name='password_reset_confirm'),
 ]

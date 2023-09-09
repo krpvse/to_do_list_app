@@ -1,6 +1,6 @@
 from django.urls import reverse_lazy
 from django.views.generic.base import TemplateView
-from django.contrib.auth.views import LoginView, PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView
+from django.contrib.auth.views import LoginView, PasswordResetView, PasswordResetConfirmView
 from django.views.generic.edit import CreateView
 from django.contrib.auth.models import User
 from django.contrib.messages.views import SuccessMessageMixin
@@ -29,10 +29,7 @@ class UserRegistrationView(SuccessMessageMixin, CreateView):
 class UserPasswordResetView(PasswordResetView):
     template_name = 'users/password-reset.html'
     form_class = UserPasswordResetForm
-
-
-class UserPasswordResetDoneView(PasswordResetDoneView):
-    template_name = 'users/password-reset-done.html'
+    success_url = reverse_lazy('index')
 
 
 class UserPasswordResetConfirmView(PasswordResetConfirmView):
