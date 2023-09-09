@@ -2,9 +2,11 @@
 {% load static %}
 
 
+
 {% block title %}
     <title>To Do List – Рабочие задачи</title>
 {% endblock %}
+
 
 
 {% block task_types %}
@@ -15,6 +17,7 @@
 {% endblock %}
 
 
+
 {% block pagination %}
     <div class="pagination">
         {% if tasks.has_previous %}
@@ -22,16 +25,14 @@
         {% else %}
             <a class="page-number" href=""><</a>
         {% endif %}
-
-            {% for page_number in paginator.page_range %}
-                {% if page_number == page_obj.number %}
-                    <a class="page-number" href="{% url 'tasks:work_tasks_paginator' page_number %}">{{ page_number }}</a> /
-                {% endif %}
-                {% if page_number == paginator.num_pages %}
-                    <a class="page-number" href="{% url 'tasks:work_tasks_paginator' page_number %}">{{ page_number }}</a>
-                {% endif %}
-            {% endfor %}
-
+        {% for page_number in paginator.page_range %}
+            {% if page_number == page_obj.number %}
+                <a class="page-number" href="{% url 'tasks:work_tasks_paginator' page_number %}">{{ page_number }}</a> /
+            {% endif %}
+            {% if page_number == paginator.num_pages %}
+                <a class="page-number" href="{% url 'tasks:work_tasks_paginator' page_number %}">{{ page_number }}</a>
+            {% endif %}
+        {% endfor %}
         {% if page_obj.has_next %}
             <a class="page-number" href="{% url 'tasks:work_tasks_paginator' page_obj.next_page_number %}">></a>
         {% else %}
