@@ -2,11 +2,9 @@
 {% load static %}
 
 
-
 {% block title %}
     <title>To Do List – Рабочие задачи</title>
 {% endblock %}
-
 
 
 {% block task_types %}
@@ -15,7 +13,6 @@
         <a href="{% url 'tasks:work_tasks' %}" class="work-tasks-active">Рабочие</a>
     </div>
 {% endblock %}
-
 
 
 {% block pagination %}
