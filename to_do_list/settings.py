@@ -4,7 +4,7 @@ import os
 
 
 # LOAD LOCAL SETTINGS
-load_dotenv('to_do_list/.env')
+load_dotenv('.env')
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -81,18 +81,6 @@ DATABASES = {
         "PORT": "5432",
     }
 }
-
-
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql_psycopg2",
-#         "NAME": 'to_do_list_db',
-#         "USER": 'to_do_list_db_user',
-#         "PASSWORD": 'admin',
-#         "HOST": "127.0.0.1",
-#         "PORT": "5432",
-#     }
-# }
 
 
 # Password validation
