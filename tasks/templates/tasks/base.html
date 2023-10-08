@@ -20,7 +20,7 @@
                 <img src="{% static 'img/users/logout.png' %}" alt="Выйти из аккаунта">
             </a>
             {% block task_types %} {% endblock %}
-            <form action="{% url 'tasks:add_task' %}" method="POST">
+            <form action="{% url 'tasks:add_task' request.tasks_type %}" method="POST">
                 {% csrf_token %}
                 {{ form.title }}
                 <button class="add-task-button" type="submit">+</button>
@@ -30,17 +30,17 @@
                     {% for task in page_obj %}
                         <li class="task">
                             {% if not task.is_completed %}
-                                <a class="is-completed-task-icon" href="{% url 'tasks:change_task_status' task.id %}">
+                                <a class="is-completed-task-icon" href="{% url 'tasks:change_task_status' request.tasks_type task.id %}">
                                     <img src="{% static 'img/tasks/uncompleted-task-icon.png' %}" alt="Не выполнена">
                                 </a>
                                 <p class="uncompleted-task-title">{{ task.title }}</p>
                             {% else %}
-                                <a class="is-completed-task-icon" href="{% url 'tasks:change_task_status' task.id %}">
+                                <a class="is-completed-task-icon" href="{% url 'tasks:change_task_status' request.tasks_type task.id %}">
                                     <img src="{% static 'img/tasks/completed-task-icon.png' %}" alt="Выполнена">
                                 </a>
                                 <p class="completed-task-title">{{ task.title }}</p>
                             {% endif %}
-                            <a class="delete-task-icon" href="{% url 'tasks:delete_task' task.id %}">
+                            <a class="delete-task-icon" href="{% url 'tasks:delete_task' request.tasks_type task.id %}">
                                 <img src="{% static 'img/tasks/delete-task-icon.png' %}">
                             </a>
                             <hr class="task-underline">
@@ -55,7 +55,7 @@
             {% endif %}
             {% if page_obj %}
                 <div class="tasks-clear">
-                    <a class="tasks-clear-content" href="{% url 'tasks:delete_all_tasks' %}">
+                    <a class="tasks-clear-content" href="{% url 'tasks:delete_all_tasks' request.tasks_type %}">
                         Очистить все задачи
                     </a>
                 </div>
