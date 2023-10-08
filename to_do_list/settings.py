@@ -45,6 +45,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'to_do_list.middlewares.TaskTypeDefinitionMiddleware',
 ]
 
 ROOT_URLCONF = 'to_do_list.urls'
@@ -140,9 +142,3 @@ LOGIN_REDIRECT_URL = '/tasks/personal/'
 #Sending emails
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-
-#Tasks
-
-PERSONAL_TASKS_ROUTE = 'personal/'
-WORK_TASKS_ROUTE = 'work/'
