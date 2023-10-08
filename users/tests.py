@@ -1,8 +1,8 @@
 from http import HTTPStatus
 
+from django.contrib.auth.models import User
 from django.test import TestCase
 from django.urls import reverse
-from django.contrib.auth.models import User
 
 
 class IndexViewTestCase(TestCase):
@@ -81,17 +81,14 @@ class UserLoginViewTestCase(TestCase):
         self.assertTemplateUsed(response, 'users/authorization.html')
 
     def test_redirect_authenticated_user(self):
-        #user is not authenticated
         response = self.client.get(self.path)
 
         self.assertFalse(response.wsgi_request.user.is_authenticated)
         self.assertEqual(response.status_code, HTTPStatus.OK)
         self.assertTemplateUsed(response, 'users/authorization.html')
 
-        #login
         self.client.login(username=self.user['username'], password=self.user['password'])
 
-        #user is authenticated
         response = self.client.get(self.path, follow=True)
 
         self.assertTrue(response.wsgi_request.user.is_authenticated)

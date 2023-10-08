@@ -1,7 +1,7 @@
-from pathlib import Path
-from dotenv import load_dotenv
 import os
+from pathlib import Path
 
+from dotenv import load_dotenv
 
 # LOAD LOCAL SETTINGS
 load_dotenv('.env')
@@ -132,13 +132,13 @@ STATICFILES_DIRS = (
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-#Users
+# Users
 
 LOGIN_URL = '/user/authorization/'
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_REDIRECT_URL = '/tasks/personal/'
 
 
-#Sending emails
+# Sending emails
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
