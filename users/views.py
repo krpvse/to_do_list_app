@@ -1,11 +1,13 @@
+from django.contrib.auth.models import User
+from django.contrib.auth.views import (LoginView, PasswordResetConfirmView,
+                                       PasswordResetView)
+from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.views.generic.base import TemplateView
-from django.contrib.auth.views import LoginView, PasswordResetView, PasswordResetConfirmView
 from django.views.generic.edit import CreateView
-from django.contrib.auth.models import User
-from django.contrib.messages.views import SuccessMessageMixin
 
-from users.forms import UserRegistrationForm, UserAuthorizationForm, UserPasswordResetForm, UserSetPasswordForm
+from users.forms import (UserAuthorizationForm, UserPasswordResetForm,
+                         UserRegistrationForm, UserSetPasswordForm)
 
 
 class IndexView(TemplateView):
@@ -23,7 +25,8 @@ class UserRegistrationView(SuccessMessageMixin, CreateView):
     template_name = 'users/registration.html'
     form_class = UserRegistrationForm
     success_url = reverse_lazy('users:authorization')
-    success_message = f'Поздравляем! Вы успешно зарегистрированы.\nТеперь заходите в профиль и планируйте задачи!'
+    success_message = f'Поздравляем! Вы успешно зарегистрированы.\n' \
+                      f'Теперь заходите в профиль и планируйте задачи!'
 
 
 class UserPasswordResetView(PasswordResetView):

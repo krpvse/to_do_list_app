@@ -1,7 +1,7 @@
 from django.urls import path
 
-from tasks.views import change_task_status, delete_task, delete_all_tasks, add_task, TasksListView
-
+from tasks.views import (TasksListView, add_task, change_task_status,
+                         delete_all_tasks, delete_task)
 
 app_name = 'tasks'
 

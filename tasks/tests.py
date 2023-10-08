@@ -25,9 +25,10 @@ class TasksListViewTestCase(TestCase):
         self.assertEqual(response.status_code, HTTPStatus.OK)
         self.assertTemplateUsed(response, 'tasks/personal-tasks.html')
 
-        actual_task_list = response.context_data['object_list']
-        expected_task_list = Task.objects.filter(user=2, task_type='Личная').order_by('is_completed', '-id')[:5]
-        self.assertEqual(list(actual_task_list), list(expected_task_list))
+        self.assertEqual(
+            list(response.context_data['object_list']),
+            list(Task.objects.filter(user=2, task_type='Личная').order_by('is_completed', '-id')[:5])
+        )
 
     def test_get_work_task_page(self):
         self.client.login(username=self.user['username'], password=self.user['password'])
@@ -37,16 +38,19 @@ class TasksListViewTestCase(TestCase):
         self.assertEqual(response.status_code, HTTPStatus.OK)
         self.assertTemplateUsed(response, 'tasks/work-tasks.html')
 
-        actual_task_list = response.context_data['object_list']
-        expected_task_list = Task.objects.filter(user=2, task_type='Рабочая').order_by('is_completed', '-id')[:5]
-        self.assertEqual(list(actual_task_list), list(expected_task_list))
+        self.assertEqual(
+            list(response.context_data['object_list']),
+            list(Task.objects.filter(user=2, task_type='Рабочая').order_by('is_completed', '-id')[:5])
+        )
 
     def test_redirect_not_authenticated_user(self):
         response = self.client.get(self.personal_tasks_path)
-        self.assertRedirects(response, f'{reverse("users:authorization")}?next={self.personal_tasks_path}')
+        redirect_path = f'{reverse("users:authorization")}?next={self.personal_tasks_path}'
+        self.assertRedirects(response, redirect_path)
 
         response = self.client.get(self.work_tasks_path)
-        self.assertRedirects(response, f'{reverse("users:authorization")}?next={self.work_tasks_path}')
+        redirect_path = f'{reverse("users:authorization")}?next={self.work_tasks_path}'
+        self.assertRedirects(response, redirect_path)
 
 
 class TaskListChangeTestCase(TestCase):
@@ -166,7 +170,7 @@ class TaskListChangeTestCase(TestCase):
         self.client.post(path, wrong_task)
 
         response = self.client.get(self.personal_tasks_path)
-        self.assertFalse(Task.objects.filter(title='Very very very very very very very very very loooooooooooong task'))
+        self.assertFalse(Task.objects.filter(title=wrong_task['title']))
         self.assertContains(response, self.length_error_message)
 
     def test_work_task_title_length_error(self):
@@ -177,5 +181,5 @@ class TaskListChangeTestCase(TestCase):
         self.client.post(path, wrong_task)
 
         response = self.client.get(self.work_tasks_path)
-        self.assertFalse(Task.objects.filter(title='Very very very very very very very very very loooooooooooong task'))
+        self.assertFalse(Task.objects.filter(title=wrong_task['title']))
         self.assertContains(response, self.length_error_message)
