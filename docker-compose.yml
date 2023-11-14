@@ -1,35 +1,36 @@
-version: '3.8'
+version: '3'
 
 services:
   postgres_db:
     image: postgres:latest
     container_name: postgres_db
-    healthcheck:
-      test: ['CMD-SHELL', 'pg_isready -U to_do_list']
-      interval: 5s
-      timeout: 5s
-      retries: 5
+    restart: always
     environment:
       POSTGRES_USER: to_do_list
       POSTGRES_PASSWORD: to_do_list
       POSTGRES_DB: to_do_list
-    ports:
-      - '5432:5432'
+    volumes:
+      - postgres_db_data:/var/lib/postgresql/data/
 
   to_do_list:
     build:
       context: .
     container_name: to_do_list
+    restart: always
     ports:
       - '8000:8000'
     depends_on:
-      postgres_db:
-        condition: service_healthy
+      - postgres_db
     environment:
       SECRET_KEY: secret_key
-      DEBUG: False
+      DEBUG: True
       POSTGRES_DB: to_do_list
       POSTGRES_USER: to_do_list
       POSTGRES_PASSWORD: to_do_list
       POSTGRES_HOST: postgres_db
       POSTGRES_PORT: 5432
+    volumes:
+      - ./:/app/
+
+volumes:
+  postgres_db_data:
