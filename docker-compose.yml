@@ -2,7 +2,7 @@ version: '3'
 
 services:
   postgres_db:
-    image: postgres:latest
+    image: postgres
     container_name: postgres_db
     restart: always
     environment:
@@ -12,10 +12,9 @@ services:
     volumes:
       - postgres_db_data:/var/lib/postgresql/data/
 
-  to_do_list:
-    build:
-      context: .
-    container_name: to_do_list
+  app:
+    build: app/
+    container_name: app
     restart: always
     ports:
       - '8000:8000'
@@ -23,14 +22,12 @@ services:
       - postgres_db
     environment:
       SECRET_KEY: secret_key
-      DEBUG: True
+      DEBUG: 'True'
       POSTGRES_DB: to_do_list
       POSTGRES_USER: to_do_list
       POSTGRES_PASSWORD: to_do_list
       POSTGRES_HOST: postgres_db
       POSTGRES_PORT: 5432
-    volumes:
-      - ./:/app/
 
 volumes:
   postgres_db_data:
